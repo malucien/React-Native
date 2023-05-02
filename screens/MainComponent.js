@@ -7,6 +7,8 @@ import HomeScreen from './HomeScreen';
 import DirectoryScreen from './DirectoryScreen';
 import AboutScreen from './AboutScreen';
 import ContactScreen from './ContactScreen';
+import CampsiteInfoScreen from '../features/campsites/CampsiteInfoScreen'
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,6 +40,11 @@ const DirectoryNavigator = () => {
         name='Directory'
         component={DirectoryScreen}
         options={{ title: 'Campsite Directory' }}
+      />
+      <Stack.Screen
+        name='CampsiteInfo'
+        component={CampsiteInfoScreen}
+        options={{ title: 'Campsite Information' }}
       />
     </Stack.Navigator>
   );
