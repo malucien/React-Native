@@ -11,6 +11,7 @@ const CampsiteInfoScreen = ({ route }) => {
     (comment) => comment.campsiteId === campsite.id
   ));
   const [favorite, setFavorite] = useState(false);
+  
 
   const renderCommentItem = ({ item }) => {
       return (
