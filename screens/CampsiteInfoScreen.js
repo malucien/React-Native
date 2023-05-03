@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import RenderCampsite from './RenderCampsite';
-import { COMMENTS } from '../../shared/comments';
+import { COMMENTS } from '../shared/comments';
  
 
 const CampsiteInfoScreen = ({ route }) => {
@@ -11,7 +11,7 @@ const CampsiteInfoScreen = ({ route }) => {
     (comment) => comment.campsiteId === campsite.id
   ));
   const [favorite, setFavorite] = useState(false);
-  
+
 
   const renderCommentItem = ({ item }) => {
       return (
