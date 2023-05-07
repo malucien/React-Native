@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import RenderCampsite from './RenderCampsite';
+import RenderCampsite from '../features/campsites/RenderCompsite';
 import { COMMENTS } from '../shared/comments';
  
 

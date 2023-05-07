@@ -1,35 +1,40 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { baseUrl } from '../../shared/baseUrl';
 
-export const fetchPromotions = createAsyncThunk(
-    'promotions/fetchPromotions',
+export const fetchCampsites = createAsyncThunk(
+    'campsites/fetchCampsites',
     async () => {
-        const response = await fetch(baseUrl + 'promotions');
+        const response = await fetch(baseUrl + 'campsites');
         if (!response.ok) {
             return Promise.reject(
                 'Unable to fetch, status: ' + response.status
             );
         }
         const data = await response.json();
+        console.log(data);
         return data;
     }
 );
 
-const promotionsSlice = createSlice({
-    name: 'promotions',
-    initialState: { isLoading: true, errMess: null, promotionsArray: [] },
+  
+  
+  
+
+const campsitesSlice = createSlice({
+    name: 'campsites',
+    initialState: { isLoading: true, errMess: null, campsitesArray: [] },
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchPromotions.pending, (state) => {
+            .addCase(fetchCampsites.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(fetchPromotions.fulfilled, (state, action) => {
+            .addCase(fetchCampsites.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.errMess = null;
-                state.promotionsArray = action.payload;
+                state.campsitesArray = action.payload;
             })
-            .addCase(fetchPromotions.rejected, (state, action) => {
+            .addCase(fetchCampsites.rejected, (state, action) => {
                 state.isLoading = false;
                 state.errMess = action.error
                     ? action.error.message
@@ -38,4 +43,4 @@ const promotionsSlice = createSlice({
     }
 });
 
-export const promotionsReducer = promotionsSlice.reducer;
+export const campsitesReducer = campsitesSlice.reducer;
