@@ -10,13 +10,9 @@ const RenderCampsite =(props) => {
     return (
       <Card containerStyle={styles.cardContainer}>
         <Card.Image source={{uri: baseUrl + campsite.image }}>
-          <View style={{justifyContent: "center", flex:1}}>
+          <View style={styles.cardRow}>
             <Text
-              style={{
-                color: "white",
-                textAlign: "center",
-                fontSize: 20
-              }}
+              style={styles.cardText}
             >
               {campsite.name}
             </Text>
@@ -31,6 +27,14 @@ const RenderCampsite =(props) => {
           reverse
           onPress={() => props.isFavorite ? console.log('Already set as a favorite') : props.markFavorite()}
         />
+        <Icon
+          name="pencil"
+          type="font-awesome"
+          color="#5637DD"
+          raised
+          reverse
+          onPress={() => props.onShowModal()}
+        />
       </Card>
     );
   }
@@ -42,6 +46,22 @@ const styles = StyleSheet.create({
     margin: 0,
     marginBottom: 20,
   },
+  cardRow: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    flexDirection: "row",
+    margin: 20,
+  },
+  cardText: {
+    textShadowColor: 'rgba(0, 0, 0, 1)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 20,
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
+  },
+
 });
 
 export default RenderCampsite;
