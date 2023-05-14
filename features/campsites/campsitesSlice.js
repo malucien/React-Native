@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { baseUrl } from '../../shared/baseUrl';
+import * as Animatable from 'react-native-animatable';
 
 export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
